@@ -130,7 +130,7 @@ class UserController extends Controller {
 
 			]);
 		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-			return redirect('admin/theloai/danhsach');
+			return redirect('admin/tintuc/danhsach');
 		} else {
 			return redirect('admin/dangnhap')->with('thongbao', 'Đăng nhập không thành công');
 		}
@@ -144,4 +144,5 @@ class UserController extends Controller {
 		return redirect('admin/dangnhap')->with('thongbaodangxuat', 'Đăng xuất thành công');
 
 	}
+
 }
