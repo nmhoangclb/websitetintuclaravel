@@ -1,3 +1,0 @@
-<script type="text/javascript" language="javascript" src="ckeditor/ckeditor.js" ></script>
-
-<textarea id="demo" class="ckeditor"></textarea>

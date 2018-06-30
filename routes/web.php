@@ -21,7 +21,7 @@ Route::post('admin/dangnhap', 'UserController@postDangnhapAdmin');
 
 Route::get('admin/logout', 'UserController@getDangXuatAdmin');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 
 	Route::group(['prefix' => 'theloai'], function () {
 		//admin/theloai/them
@@ -114,3 +114,21 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('trangchu', 'PagesController@trangchu');
+
+Route::get('lienhe', 'PagesController@lienhe');
+
+Route::get('loaitin/{id}/{TenKhongDau}.html', 'PagesController@loaitin');
+
+Route::get('tintuc/{id}/{TieuDeKhongDau}.html', 'PagesController@tintuc');
+
+Route::get('dangnhap', 'PagesController@getDangnhap');
+Route::post('dangnhap', 'PagesController@postDangnhap');
+
+Route::get('dangxuat', 'PagesController@getDangxuat');
+
+Route::post('comment/{id}', 'CommentController@postComment');
+
+Route::get('nguoidung', 'PagesController@getNguoiDung');
+Route::post('nguoidung', 'PagesController@postNguoiDung');
